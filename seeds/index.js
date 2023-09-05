@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 const sequelize = require('../config/connection')
-const { Dish, User } = require('../models')
+const { Post, User } = require('../models')
 
 const postData = require('./posts-seeds.json')
 const usersData = require('./users-seeds.json')
