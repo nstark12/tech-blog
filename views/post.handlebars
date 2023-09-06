@@ -5,6 +5,8 @@
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
   <div class="card-footer text-body-secondary">
-    Created by: {{user.username}} on {{format_date singlePost.createdAt}}
+    Created on: {{format_date singlePost.createdAt}}
   </div>
 </div>
+
+{{> comments}}
