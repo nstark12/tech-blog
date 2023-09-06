@@ -5,7 +5,7 @@ const commentBody = document.querySelector('.form-input')
 form.addEventListener('submit', (e) => {
     e.preventDefault()
     const commentData = {
-        user_id: postId.value,
+        post_id: postId.value,
         content: commentBody.value
     }
 
