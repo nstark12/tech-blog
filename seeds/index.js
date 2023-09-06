@@ -1,24 +1,36 @@
 require('dotenv').config()
 
 const sequelize = require('../config/connection')
-const { Post, User } = require('../models')
+const { User, Post, Comment } = require('../models')
 
-const postData = require('./posts-seeds.json')
 const usersData = require('./users-seeds.json')
+const postsData = require('./posts-seeds.json')
+const commentsData = require('./comments-seeds.json')
+
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true })
 
     // create users
-    let users = await User.bulkCreate(usersData, {
+    const users = await User.bulkCreate(usersData, {
         individualHooks: true,
-        returning: true,
-        raw: true
+        returning: true
     })
 
-    // serialize user data
-    users = users.map(user => user.dataValues)
-    console.log(users)
+    // create posts 
+    const posts = await Post.bulkCreate(postsData, {
+        individualHooks: true,
+        returning: true
+    })
 
-    // loop through post data
+    // create comments
+    const comments = await Comment.bulkCreate(commentsData, {
+        individualHooks: true,
+        returning: true
+    })
+
+    process.exit(0)
+
 }
+
+seedDatabase()
