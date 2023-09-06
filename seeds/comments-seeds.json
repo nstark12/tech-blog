@@ -1,12 +1,12 @@
 [
     {
-        "contents": "I completely agree with this!",
+        "content": "I completely agree with this!",
         "user_id": 1,
         "post_id": 1
     },
 
     {
-        "contents": "I am not sure if I agree with this. Can you tell me more?",
+        "content": "I am not sure if I agree with this. Can you tell me more?",
         "user_id": 2,
         "post_id": 2
     }

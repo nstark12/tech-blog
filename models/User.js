@@ -37,7 +37,6 @@ User.init({
     }
 }, {
     sequelize,
-    modelName: 'user',
     hooks: {
         beforeCreate: async function(user) {
             user.password = await bcrypt.hash(user.password, saltRounds)
@@ -45,7 +44,10 @@ User.init({
         beforeUpdate: async function(user) {
             user.password = await bcrypt.hash(user.password, saltRounds)
         }
-    }
+    },
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'user'
 })
 
 module.exports = User
