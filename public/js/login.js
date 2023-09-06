@@ -9,7 +9,7 @@ form.addEventListener('submit', (e) => {
         password: passwordInput.value.trim()
     }
 
-    fetch('api/users/login', {
+    fetch('api/user/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -17,7 +17,7 @@ form.addEventListener('submit', (e) => {
         body: JSON.stringify(userData)
     })
     .then(response => {
-        if (response.status === 200) {
+        if (response.status === 202) {
             window.location.assign('/')
         }
     })
