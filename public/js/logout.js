@@ -3,7 +3,7 @@ const logout = document.getElementById("logout")
 logout.addEventListener("click", (event) => {
   event.preventDefault()
   console.log("clicked")
-  fetch("/api/users/logout", {
+  fetch("/api/user/logout", {
     method: "post",
   })
   .then(response => {

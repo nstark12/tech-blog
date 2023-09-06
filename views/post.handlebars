@@ -1,0 +1,10 @@
+<div class="card text-center">
+  <div class="card-body">
+    <h5 class="card-title">{{singlePost.title}}</h5>
+    <p class="card-text">{{singlePost.content}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="card-footer text-body-secondary">
+    Created by: {{user.username}} on {{format_date singlePost.createdAt}}
+  </div>
+</div>

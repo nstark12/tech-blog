@@ -36,7 +36,6 @@ User.init({
         }
     }
 }, {
-    sequelize,
     hooks: {
         beforeCreate: async function(user) {
             user.password = await bcrypt.hash(user.password, saltRounds)
@@ -45,6 +44,7 @@ User.init({
             user.password = await bcrypt.hash(user.password, saltRounds)
         }
     },
+    sequelize,
     freezeTableName: true,
     underscored: true,
     modelName: 'user'
