@@ -5,11 +5,11 @@ const commentBody = document.querySelector('.form-input')
 form.addEventListener('submit', (e) => {
     e.preventDefault()
     const commentData = {
-        user_id: postId.value.trim,
+        user_id: postId.value,
         content: commentBody.value
     }
 
-    if (commentBody) {
+ 
         fetch('/api/comment', {
             method: 'POST',
             headers: {
@@ -24,6 +24,5 @@ form.addEventListener('submit', (e) => {
             }
         })
         .catch(err => console.log(err))
-    }
 
 })
