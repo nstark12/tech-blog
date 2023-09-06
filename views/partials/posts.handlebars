@@ -8,5 +8,8 @@
         <h5 class="card-title"><a href="/post/{{id}}" class="link-danger link-underline link-underline-opacity-0">{{title}}</a></h5>
         <p class="card-text">{{content}}</p>
     </div>
+    <div class="card-footer text-body-secondary">
+    Posted on: {{format_date createdAt}}
+    </div>
     </div>
 {{/each}}
