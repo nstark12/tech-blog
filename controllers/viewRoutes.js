@@ -18,17 +18,29 @@ router.get('/', async (req, res) => {
 
 router.get('/posts/:id', async (req, res) => {
     try {
-        const post = await Post.findByPk(req.params.id, {
-            include: [ 
-                { 
-                    model: User,
+        
+        // const post = await Post.findByPk(req.params.id, {
+        //     include: [ 
+        //         { 
+        //             model: User,
+        //             model: Comment,
+        //                 include: [
+        //                     {
+        //                         model: User,
+        //                         attributes: ['username']
+        //                     }
+        //                 ] 
+        //         }
+        //     ]
+        // })
+
+        const post = await Post.findOne({
+            where: {id: req.params.id},
+            include: [
+                User,
+                {
                     model: Comment,
-                        include: [
-                            {
-                                model: User,
-                                attributes: ['username']
-                            }
-                        ] 
+                    include: [User]
                 }
             ]
         })

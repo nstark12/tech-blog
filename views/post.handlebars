@@ -4,7 +4,7 @@
     <p class="card-text">{{singlePost.content}}</p>
   </div>
   <div class="card-footer text-body-secondary">
-    Created on: {{format_date singlePost.createdAt}}
+    Created by: {{singlePost.user.username}} on {{format_date singlePost.createdAt}}
   </div>
 </div>
 
