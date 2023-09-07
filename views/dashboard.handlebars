@@ -2,7 +2,22 @@
 
 <h3>Posts:</h3>
 
-{{> posts}}
+{{#each posts}}
+    <div class="card text-center my-4">
+    <div class="card-header">
+        Featured Post 
+    </div>
+
+    <div class="card-body my-3">
+        <h5 class="card-title"><a href="/posts/{{id}}" class="link-danger link-underline link-underline-opacity-0">{{title}}</a></h5>
+        <p class="card-text">{{content}}</p>
+    </div>
+    <div class="card-footer text-body-secondary">
+    Posted on: {{format_date createdAt}}
+    <a href="/dashboard/{{id}}" class="btn btn-danger mx-3">Edit/Delete Post</a>
+    </div>
+    </div>
+{{/each}}
 
 
 <section class="card my-5">

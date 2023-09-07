@@ -82,4 +82,30 @@ router.get('/dashboard', async (req, res) => {
     }
 })
 
+router.get('/dashboard/:id', async (req, res) => {
+    try{
+        const post = await Post.findByPk(req.params.id, {
+            include: [{
+                model: Comment,
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username']
+            }]
+        })
+        const editPost = post.get({
+            raw: true
+        })
+        res.render('edit-delete', {
+            editPost
+        })
+    } catch(err) {
+        res.status(500).json(err)
+    }
+})
+
 module.exports = router
