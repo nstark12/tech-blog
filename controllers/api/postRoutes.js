@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
         const post = await Post.create({
             title: req.body.title,
             content: req.body.content,
-            userId: req.session.user_id 
+            user_id: req.session.user_id 
         });
         res.status(200).json({post, message : `Post Created`})
     } catch (err) {
