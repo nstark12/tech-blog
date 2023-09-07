@@ -3,11 +3,14 @@ const deletePost = document.getElementById('delete-post')
 const postId = document.getElementById('post-id-edit').value
 const postTitle = document.getElementById('post-title')
 const postBody = document.getElementById('post-body')
+const id = window.location.toString().split('/')[
+    window.location.toString().split('/').length - 1
+  ];
 
 deletePost.addEventListener('click', (e) => {
     e.preventDefault()
 
-    fetch('/api/post/' + postId, {
+    fetch(`/api/post/${id}`, {
         method: 'DELETE'
     })
     .then(response => {
@@ -27,9 +30,9 @@ editPost.addEventListener('click', (e) => {
         title: postTitle.value,
         content: postBody.value
     }
-    console.log('POST ID' + postId)
+    console.log('POST ID' + id)
 
-    fetch('/api/post/' + postId, {
+    fetch(`/api/post/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
