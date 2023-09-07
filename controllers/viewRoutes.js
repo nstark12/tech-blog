@@ -40,7 +40,7 @@ router.get('/posts/:id', async (req, res) => {
                 User,
                 {
                     model: Comment,
-                    include: [User]
+                    include: [User],
                 }
             ]
         })
@@ -92,7 +92,7 @@ router.get('/dashboard', async (req, res) => {
             where: {
                 user_id
             },
-            raw: true
+            raw: true,
         })
         const comments = await Comment.findAll({
             where: {
