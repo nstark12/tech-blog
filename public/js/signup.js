@@ -1,6 +1,6 @@
 const form = document.querySelector('form')
-const usernameInput = document.getElementById('usernameInput')
-const passwordInput = document.getElementById('passwordInput')
+const usernameInput = document.getElementById('usernameSignInput')
+const passwordInput = document.getElementById('passwordSignInput')
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -9,7 +9,9 @@ form.addEventListener('submit', (e) => {
         password: passwordInput.value.trim()
     }
 
-    fetch('api/user/login', {
+    console.log(usernameInput.value, passwordInput.value)
+
+    fetch('/api/user', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -19,8 +21,7 @@ form.addEventListener('submit', (e) => {
     .then(response => {
         if (response.status === 202) {
             window.location.assign('/')
-        } else {
-            window.alert('Not authenticated')
+        
         }
     })
     .catch(err => console.log(err))

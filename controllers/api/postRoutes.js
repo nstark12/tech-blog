@@ -52,7 +52,9 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try {
-        const updatePost = await Post.update(req.body, { where : { id: req.params.id } }); 
+        
+    const updatePost = await Post.update(req.body, { 
+        where : { id: req.params.id } }); 
 
         res.status(200).json(updatePost);
         
