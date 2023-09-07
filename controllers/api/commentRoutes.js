@@ -10,6 +10,7 @@ router.post('/', async (req, res) => {
             content: req.body.content
         })
 
+        res.render('comments', { newComment })
         res.status(200).json(newComment)
     } catch(err) {
         res.status(500).json(err)

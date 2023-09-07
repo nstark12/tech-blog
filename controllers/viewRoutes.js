@@ -69,8 +69,13 @@ router.get('/dashboard', async (req, res) => {
             },
             raw: true
         })
-        console.log(posts)
-        res.render('dashboard', { ...user , posts})
+        const comments = await Comment.findAll({
+            where: {
+                user_id
+            },
+            raw: true
+        })
+        res.render('dashboard', { ...user , posts, comments})
 
     } catch(err) {
         res.status(500).json(err)

@@ -3,3 +3,17 @@
 <h3>Posts:</h3>
 
 {{> posts}}
+
+
+<section class="card my-5">
+      <div class="card-header">
+        <h3>Comments</h3>
+      </div>
+
+<div class="card-body">
+    {{#each comments}}
+    <p>{{content}}</p>
+
+    <p>&mdash; {{format_date createdAt}}</p>
+    {{/each}}
+</div>
