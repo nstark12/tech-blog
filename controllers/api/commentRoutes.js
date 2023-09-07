@@ -1,6 +1,21 @@
 const router = require('express').Router()
 const { Comment } = require('../../models')
 
+router.get('/', async (req, res) => {
+    try{
+        const commentData = await Comment.findAll({
+            include: [User]
+        })
+
+        // serialize data
+        const comments = commentData.map((comment) => comment.get({ plain: true }))
+
+        res.render('post', {comments, loggedIn: req.session.loggedIn})
+    } catch(err) {
+        res.status(500).json(err)
+    }
+})
+
 router.post('/', async (req, res) => {
     try {
         const newComment = Comment.create({
