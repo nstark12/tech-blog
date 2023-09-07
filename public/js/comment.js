@@ -5,7 +5,7 @@ const commentBody = document.querySelector('.form-input')
 form.addEventListener('submit', (e) => {
     e.preventDefault()
     const commentData = {
-        post_id: postId.value,
+        user_id: postId.value,
         content: commentBody.value
     }
 
@@ -24,5 +24,6 @@ form.addEventListener('submit', (e) => {
             }
         })
         .catch(err => console.log(err))
+
 
 })

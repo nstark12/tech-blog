@@ -1,0 +1,18 @@
+
+<form class="card my-5" id="add-comment">
+    <div class="card-header"><h3>Add New Post</h3></div>
+
+    <div class="card-body d-flex flex-column">
+        <input type="hidden" hidden="true" id="post-id" name="post_id" value="{{singlePost.id}}">
+
+        <label for="post-title" class="form-label">Post Title</label>
+        <input type="text" id="post-title" name="post-title">
+
+        <label for="post-body" class="form-label">Post Content</label>
+        <textarea name="post-body" id="post-body" class="form-input"></textarea>
+
+        <button type="submit" class="btn btn-danger my-3">Submit</button>
+    </div>
+</form>
+
+<script src="/js/add-post.js"></script>
