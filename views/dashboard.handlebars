@@ -1,7 +1,5 @@
-<h1>Your Posts</h1>
+<h1>{{username}}'s Dashboard</h1>
 
-<div class="posts">
-    {{#each posts}}
-    <h3><a href="/dashboard/{{id}}">{{title}}</a></h3>
-    {{/each}}
-</div>
+<h3>Posts:</h3>
+
+{{> posts}}

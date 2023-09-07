@@ -53,4 +53,28 @@ router.get('/login', async (req, res) => {
     }
 })
 
+router.get('/dashboard', async (req, res) => {
+    const user_id = req.session.user_id
+    if (!user_id) {
+        res.redirect('/login')
+    }
+    try {
+        const user = await User.findByPk(user_id, {
+            raw: true,
+            
+        })
+        const posts = await Post.findAll({
+            where: {
+                user_id
+            },
+            raw: true
+        })
+        console.log(posts)
+        res.render('dashboard', { ...user , posts})
+
+    } catch(err) {
+        res.status(500).json(err)
+    }
+})
+
 module.exports = router
