@@ -19,10 +19,9 @@ form.addEventListener('submit', (e) => {
         body: JSON.stringify(userData)
     })
     .then(response => {
-        if (response.status === 202) {
+        if (response.status === 200) {
             window.location.assign('/')
-        
-        }
+        } 
     })
     .catch(err => console.log(err))
 })

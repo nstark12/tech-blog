@@ -2,17 +2,14 @@
 [
     {
       "username": "8ctopotamus",
-      "email": "zylo.codes@gmail.com",
       "password": "supersecretpass"
     },
     {
       "username": "nstark12",
-      "email": "nstark@gmail.com",
       "password": "passwordpassword"
     },
     {
       "username": "Luke Skywalker",
-      "email": "luke@gmail.com",
       "password": "supersecretpass"
     }
   ]
