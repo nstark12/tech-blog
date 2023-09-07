@@ -88,7 +88,7 @@ router.get('/dashboard', async (req, res) => {
             },
             raw: true
         })
-        res.render('dashboard', { ...user , posts, comments})
+        res.render('dashboard', { ...user , posts, comments, logged_in: req.session.logged_in})
 
     } catch(err) {
         res.status(500).json(err)
